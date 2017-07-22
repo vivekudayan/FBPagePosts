@@ -1,26 +1,18 @@
 <div class="content-wrapper">
     <div class="inner-container container">
         <div class="row">
-            <div class="section-header col-md-6">
-                <h2>Page Title</h2>
+            <div class="section-header">
+                <h2>Page Contents</h2>
                 <span>Recent <?= $limit ?> Posts</span>
             </div> <!-- /.section-header -->
         </div> <!-- /.row -->
         <div class="row">
             <div class="blog-masonry masonry-true">
                 <?php
-                $i = 0;
-                $data = json_decode($data, true);
-                foreach ($data['data'] as $items) {
-                    $i++;
-                    if ($i % 5 == 0) {
-                        ?>
-                        <div class="post-masonry col-md-4 col-sm-6">
-
-                        </div>
-                        <?php
-                    }
-                    ?>
+                    $i = 0;
+                    $data = json_decode($data, true);
+                    foreach ($data['data'] as $items) {
+                ?>
                     <div class="post-masonry col-md-4 col-sm-6">
                         <div class="blog-body">
                             <div class="box-content">
@@ -30,35 +22,19 @@
                         </div>
                         <div class="blog-thumb">
                             <img src="<?= $items['full_picture'] ?>" alt="<?= $items['message'] ?>" title="<?= $items['message'] ?>">
-                            <?php if ($items['attachments']['data'][0]['type'] == 'photo') {
-                                ?>
                                 <div class="overlay-b">
                                     <div class="overlay-inner">
-                                        <a href="<?= $items['full_picture'] ?>" title="<?= $items['message'] ?>" class="fancybox fa fa-expand"></a>
+                                        <a href="<?= $items['full_picture'] ?>" class="fancybox fa fa-expand"></a>
                                     </div>
                                 </div>
-
-                                <?php
-                            } else {
-                                $video = file_get_contents('https://graph.facebook.com/v2.6/' . $items['id'] . '/?fields=source&access_token=' . file_get_contents("http://zeekoi.com/accessTokens/soniaIndigo.fbToken"));
-                                $video = json_decode($video, true);
-                                ?>
-                                <div class="overlay-b">
-                                    <div class="overlay-inner">
-                                        <a href="<?= $video['source'] ?>" class="fancyboxv fa fa-play-circle-o"></a>
-                                    </div>
-                                </div>
-                            <?php }
-                        ?>
                         </div>
                         <div class="blog-body">
                             <div class="box-content">
-                                <a class="vv_btn" href="post/<?= $items['id'] ?>" title="Troll Malayalam Trolls | ICU Trolls | <?= $items['message'] ?>"> Read Comments ></a>
+                                <a class="vv_btn" href="post/<?= $items['id'] ?>" > Read Comments ></a>
                             </div>
                         </div>
                     </div> <!-- /.post-masonry -->
-                        <?php }
-                    ?>
+                <?php } ?>
             </div> <!-- /.blog-masonry -->
         </div> <!-- /.row -->
     </div> <!-- /.inner-content -->

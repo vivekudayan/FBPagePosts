@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>
+<!--> 
+<html class="no-js"> 
+<!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <title>FB Page Posts</title>
@@ -30,22 +33,11 @@
                     <div class="menu-wrapper col-md-12 col-sm-12 col-xs-12">
                         <a href="#" class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></a>
                         <ul class="sf-menu hidden-xs hidden-sm" style="text-align: center;">
-                        
-                            <li><a href="/Latest-ICU-Troll-Malayalam-Trolls" title="">Home</a></li>
+                            <?php foreach($pagesConfig as $pname => $pageid){?>
+                            <li><a href="/<?= str_replace('.', '+', $pageid)?>" title=""><?=$pname?></a></li>
+                            <?php } ?>
                         </ul>
                     </div> <!-- /.menu-wrapper -->
                 </div> <!-- /.row -->
             </div> <!-- /.main-header -->
-            <div id="responsive-menu">
-                <ul>
-                            <li><a href="/Latest-ICU-Troll-Malayalam-Trolls" title="Latest ICU Troll Malayalam Trolls">Home</a></li>
-
-                            <li><a href="/Latest-Troll-Republic" title="Latest Troll Republic Trolls">Troll Republic</a></li>
-                            <li><a href="/Latest-Whykol-Trolls" title="Latest Whykol Malayalam Trolls">Whykol</a></li>
-                            <li><a href="/Latest-International-Chalu-Union-Trolls" title="Latest ICU Malayalam Trolls">International Chalu Union</a></li>
-                            <li><a href="/Latest-Troll-Malayalam-Trolls" title="Latest Troll Malayalam Trolls">Troll Malayalam</a></li>
-                             <li><a href="/Latest-Troll-Mollywood" title="Troll Mollywood Trolls">Troll Mollywood</a></li>
-                             <li><a href="/Latest-TrollFootball-Malayalam-Trolls" title="Latest Troll Football Malayalam Trolls">Troll Football Malayalam</a></li>
-                </ul>
-            </div>
         </header> <!-- /.site-header -->
